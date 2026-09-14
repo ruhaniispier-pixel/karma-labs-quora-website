@@ -518,3 +518,82 @@ details p{margin:0;padding:0 20px 18px;color:var(--muted);font-size:12px;line-he
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
+
+
+/* =========================================================
+   FINAL HERO / LOGO FIX
+   - logo is embedded in index.html, so no broken image path
+   - floating mascot chip removed
+   - hero dashboard stays fully inside its own grid column
+   ========================================================= */
+
+.hero-layout{
+  grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  gap:64px;
+  align-items:center;
+}
+
+.hero-copy,
+.hero-lab{
+  min-width:0;
+  width:100%;
+}
+
+.hero-copy{
+  position:relative;
+  z-index:2;
+}
+
+.hero-lab{
+  position:relative;
+  z-index:1;
+  overflow:visible;
+}
+
+.lab-shell{
+  width:100%;
+  max-width:100%;
+  transform:none !important;
+  margin:0;
+}
+
+.mascot-chip,
+.bubble{
+  display:none !important;
+}
+
+.brand img,
+.final-visual img,
+.footer-brand img{
+  object-fit:cover;
+}
+
+@media(max-width:1100px){
+  .hero-layout{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .hero-copy{
+    max-width:760px;
+  }
+
+  .hero-lab{
+    width:min(100%,900px);
+    margin-inline:auto;
+  }
+}
+
+@media(max-width:760px){
+  .hero-layout{
+    gap:32px;
+  }
+
+  .lab-shell{
+    box-shadow:6px 6px 0 var(--charcoal),0 18px 40px rgba(32,36,43,.12);
+  }
+
+  .dashboard{
+    padding:14px;
+  }
+}
