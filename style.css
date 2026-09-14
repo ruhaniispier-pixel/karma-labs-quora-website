@@ -597,3 +597,103 @@ details p{margin:0;padding:0 20px 18px;color:var(--muted);font-size:12px;line-he
     padding:14px;
   }
 }
+
+
+/* =========================================================
+   HERO HEADLINE COLLISION FIX — V2
+   Keeps the heading fully inside the left column at all sizes.
+   ========================================================= */
+
+.hero-layout{
+  grid-template-columns:minmax(0,.80fr) minmax(0,1.20fr);
+  gap:78px;
+  align-items:center;
+}
+
+.hero-copy{
+  min-width:0;
+  max-width:100%;
+  overflow:visible;
+}
+
+.hero-title{
+  width:100%;
+  max-width:590px;
+  margin:17px 0 22px;
+  font-size:clamp(50px,5.25vw,78px);
+  line-height:.98;
+  letter-spacing:-3.2px;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+
+.hero-title .hero-line{
+  display:block;
+  white-space:nowrap;
+  color:var(--charcoal);
+}
+
+.hero-title .hero-accent{
+  color:var(--coral);
+}
+
+.hero-lab{
+  min-width:0;
+  width:100%;
+}
+
+.lab-shell{
+  width:100%;
+  max-width:100%;
+}
+
+/* Give medium desktop widths a little more breathing room */
+@media (max-width:1350px) and (min-width:1101px){
+  .hero-layout{
+    grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+    gap:58px;
+  }
+
+  .hero-title{
+    max-width:520px;
+    font-size:clamp(46px,4.7vw,66px);
+    letter-spacing:-2.6px;
+  }
+}
+
+/* Tablet: stack copy and dashboard so nothing can collide */
+@media(max-width:1100px){
+  .hero-layout{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+
+  .hero-title{
+    max-width:760px;
+    font-size:clamp(48px,8vw,72px);
+  }
+
+  .hero-title .hero-line{
+    white-space:normal;
+  }
+}
+
+/* Phone */
+@media(max-width:760px){
+  .hero-title{
+    max-width:none;
+    font-size:clamp(42px,12vw,58px);
+    line-height:1;
+    letter-spacing:-2px;
+  }
+
+  .hero-title .hero-line{
+    white-space:normal;
+  }
+}
+
+@media(max-width:430px){
+  .hero-title{
+    font-size:40px;
+  }
+}
